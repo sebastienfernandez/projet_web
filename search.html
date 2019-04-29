@@ -13,13 +13,26 @@
     <body>
         <header>
 
+                <div class="title-container">
+                        <h1>Deezweb</h1>
+                    </div>
+                    <div class="navigation-container">
+                        <nav>
+                            <ul class="navigation-content">
+                                <li class="navigation-point"><a href="index.html" class="link-navigation"><i class="fas fa-home"></i><h2 class="title-navigation">Accueil</h2></a></li>
+                                <li class="navigation-point"><a href="search.html"class="link-navigation"><i class="fas fa-search"></i><h2 class="title-navigation">Rechercher un titre</h2></a></li>
+                                <li class="navigation-point"><a href="favorites.html" class="link-navigation"><i class="fas fa-heartbeat"></i><h2 class="title-navigation">Mes favoris</h2></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
         </header>
         <main>
-            <section>
-                <h3>Recherche</h3>
-                <p>Recherchez un titre sur Deezer en utilisant le formulaire suivant :</p>
+            <section class="main-content">
+                <h3 class="important-text">Recherche</h3>
+                <p class="less-important">Recherchez un titre sur Deezer en utilisant le formulaire suivant :</p>
             </section>
-            <section>
+            <section class="form-container">
                 <form method="post" action="traitement.php">
                     <p>
                         <label name="title">Titre</label> : 
@@ -36,7 +49,7 @@
                         </select>
                     </p>
                     <p>
-                        <input type="submit" value="Go"/>
+                        <input type="submit" value="Go" id="button-submit"/>
                     </p>
                 </form>
             </section>

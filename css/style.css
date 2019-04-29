@@ -1,0 +1,97 @@
+body {
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* HEADER COMMUN A TOUTES LES PAGES  */
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #5499C7;
+}
+
+.title-container {
+    color: white;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+.navigation-container {
+    width: 50%;
+}
+
+.navigation-content {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.link-navigation {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: white;
+    text-decoration: none;
+}
+
+.link-navigation:hover {
+    color: #424949;
+}
+
+i {
+    padding-right: 4%;
+}
+
+/* MAIN CONTENT   */
+
+main {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.main-content {
+    margin-top: 4%;
+    padding: 1%;
+    background-color: #EAEDED;
+    border-radius: 5px;
+}
+
+.important-text {
+    font-size: 2em;
+    color: #424949;
+    font-weight: normal;
+}
+
+.less-important {
+    color: #839192;
+}
+
+/************** INDEX   *******************/
+
+
+/************** SEARCH  *******************/
+
+form {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: solid 1px lightgray;
+    border-radius: 5px;
+}
+
+#button-submit {
+    width: 30px;
+    height: 30px;
+    background-color: #5499C7;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+
+/************** FAVORITES  *******************/
