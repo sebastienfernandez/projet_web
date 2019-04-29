@@ -11,9 +11,39 @@
         >
     </head>
     <body>
-        <header></header>
-        <main></main>
-        <footer></footer>
+        <header>
+
+        </header>
+        <main>
+            <section>
+                <h3>Recherche</h3>
+                <p>Recherchez un titre sur Deezer en utilisant le formulaire suivant :</p>
+            </section>
+            <section>
+                <form method="post" action="traitement.php">
+                    <p>
+                        <label name="title">Titre</label> : 
+                        <input type="text" name="title" for="title"/>
+                    </p>
+                    <p>
+                        <label for="sort">Trier par</label> : 
+                        <select>
+                            <option value="album">Album</option>
+                            <option value="artist">Artiste</option>
+                            <option value="music">Musique</option>
+                            <option value="view">Les plus populaires</option>
+                            <option value="ranked">Les mieux notées</option>
+                        </select>
+                    </p>
+                    <p>
+                        <input type="submit" value="Go"/>
+                    </p>
+                </form>
+            </section>
+        </main>
+        <footer>
+
+        </footer>
             <script src="script/jquery.js"></script>
             <script src="script/search.js"></script>
     </body>
