@@ -34,8 +34,8 @@ function storageAvailable(type) {
 }
 
 $(function() {
-    $('#results').html("<h1>Demain, on va voir " + monStockage.film + " !</h1>");
-    $('#results').fadeIn(3000);
+    $('#special-effect').html("<h1>Demain, on va voir " + monStockage.film + " !</h1>");
+    $('#special-effect').fadeIn(4000);
 });
 
 // possibilité d'utiliser la méthode JSONP (hack)
@@ -47,9 +47,4 @@ $(function() {
             musiques.map(m => m.title).join('<br>');
     });*/
 
-    $.ajax({
-        url : 'https://api.deezer.com/search?q=eminem&output=jsonp',
-        dataType : 'jsonp'
-    }).done(function(results) {
-        console.log(results);
-    });
+    
