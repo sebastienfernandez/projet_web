@@ -1,3 +1,5 @@
+// test du localStrorage
+
 monStockage = localStorage;
 
 localStorage.setItem('film','avengers 4');
@@ -30,6 +32,11 @@ function storageAvailable(type) {
             (storage && storage.length !== 0);
     }
 }
+
+$(function() {
+    $('#results').html("<h1>Demain, on va voir " + monStockage.film + " !</h1>");
+    $('#results').fadeIn(3000);
+});
 
 // possibilité d'utiliser la méthode JSONP (hack)
 

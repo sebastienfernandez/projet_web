@@ -55,6 +55,7 @@ main {
 
 .main-content {
     margin-top: 4%;
+    margin-bottom: 3%;
     padding: 1%;
     background-color: #EAEDED;
     border-radius: 5px;
@@ -68,6 +69,11 @@ main {
 
 .less-important {
     color: #839192;
+}
+
+#results {
+    display: none;
+    margin: 0 auto;
 }
 
 /************** INDEX   *******************/
