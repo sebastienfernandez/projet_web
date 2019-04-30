@@ -108,6 +108,10 @@ form {
     background-color: #E74C3C;
 }
 
+audio {
+    width: 100%;
+}
+
 .artist-name {
     font-family: 'Dancing Script', cursive;
     font-size: 1.5em;

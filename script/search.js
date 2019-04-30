@@ -19,7 +19,8 @@ $(function() {
             document.querySelector('#results').innerHTML =
                     musiques.data.map(m => '<h3>' + m.title + '</h3>' 
                     + '<span class="artist-name">' + m.artist.name +'</span>'
-                    + '<p>' + m.album.title + '</p>')
+                    + '<p>' + m.album.title + '</p>'
+                    + '<audio src=' + m.preview + ' controls></audio>')
                     .join('<br>');
         
         });

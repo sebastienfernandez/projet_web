@@ -33,11 +33,6 @@ function storageAvailable(type) {
     }
 }
 
-$(function() {
-    $('#special-effect').html("<h1>Demain, on va voir " + monStockage.film + " !</h1>");
-    $('#special-effect').fadeIn(4000);
-});
-
 // possibilité d'utiliser la méthode JSONP (hack)
 
 /*fetch('https://api.deezer.com/search?q=eminem')
