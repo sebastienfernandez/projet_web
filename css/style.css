@@ -145,3 +145,22 @@ audio {
 
 
 /************** FAVORITES  *******************/
+
+.favorite-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#clear-button {
+    margin-right: 80px;
+    padding: 15px;
+    width: 100px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    color: white;
+    font-size: 1.6em;
+    background-color: #424242;
+}

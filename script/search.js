@@ -40,15 +40,10 @@ $(function() {
                     .join('<br>');
         
         });
+
     });
 
-    //Ajout des favoris au localStorage
-
-    $(".favorite-button").click(function() {
-        console.log('test');
-        localStorage.setItem("title","title one");
-        console.log(myFavorites);
-    });
+    
 
     //supression des champs du formulaire 
 
@@ -58,6 +53,14 @@ $(function() {
         .val('')
         .prop('checked', false)
         .prop('selected', false);
-    })
+    });
+
+
+    //Ajout des favoris au localStorage
+
+    $("#results").on('click', '.favorite-button', function() {
+        localStorage.setItem("title","title one");
+        console.log(myFavorites);
+    });
     
 });
