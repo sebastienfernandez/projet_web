@@ -108,5 +108,11 @@ form {
     background-color: #E74C3C;
 }
 
+.artist-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5em;
+    color: #5499C7;
+}
+
 
 /************** FAVORITES  *******************/
