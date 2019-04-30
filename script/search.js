@@ -1,4 +1,10 @@
+
+
 $(function() {
+
+    //declaration de mon localStorage
+
+    let myFavorites = localStorage;
 
     // champ titre focus d'entrée de jeu
 
@@ -30,10 +36,18 @@ $(function() {
                     + '<span class="artist-name">' + m.artist.name +'</span>'
                     + '<p>' + m.album.title + '</p>'
                     + '<audio src=' + m.preview + ' controls>Veuillez mettre à jour votre navigateur ! </audio>'
-                    + '<button class="favorite-button">Bouton des favoris</button></div>')
+                    + '<button class="favorite-button"><i class="fas fa-heart"></i>Bouton des favoris</button></div>')
                     .join('<br>');
         
         });
+    });
+
+    //Ajout des favoris au localStorage
+
+    $(".favorite-button").click(function() {
+        console.log('test');
+        localStorage.setItem("title","title one");
+        console.log(myFavorites);
     });
 
     //supression des champs du formulaire 
