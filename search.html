@@ -36,10 +36,10 @@
                 <p class="less-important">Recherchez un titre sur Deezer en utilisant le formulaire suivant :</p>
             </section>
             <section class="form-container">
-                <form method="post" action="traitement.php">
+                <form>
                     <p>
-                        <label name="title">Titre</label> : 
-                        <input type="text" name="title" for="title"/>
+                        <label for="title">Titre</label> : 
+                        <input type="text" name="title" id="title"/>
                     </p>
                     <p>
                         <label for="sort">Trier par</label> : 
@@ -52,7 +52,7 @@
                         </select>
                     </p>
                     <p>
-                        <input type="submit" value="Go" id="button-submit"/>
+                        <input value="Go" id="button-submit"/>
                     </p>
                 </form>
             </section>

@@ -91,13 +91,14 @@ form {
 }
 
 #button-submit {
-    width: 30px;
+    width: 36px;
     height: 30px;
     background-color: #5499C7;
     border-radius: 3px;
     border: none;
     color: white;
     cursor: pointer;
+    text-align: center;
 }
 
 
