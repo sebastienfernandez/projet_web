@@ -108,8 +108,20 @@ form {
     background-color: #E74C3C;
 }
 
+#results {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.results-box {
+    display: flex;
+    flex-direction: column;
+    background-color: lightgrey;
+}
+
 audio {
-    width: 100%;
+    width: 400px;
 }
 
 .artist-name {
@@ -117,6 +129,8 @@ audio {
     font-size: 1.5em;
     color: #5499C7;
 }
+
+
 
 
 /************** FAVORITES  *******************/
