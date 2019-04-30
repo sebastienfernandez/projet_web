@@ -90,15 +90,22 @@ form {
     border-radius: 5px;
 }
 
-#button-submit {
-    width: 36px;
-    height: 30px;
-    background-color: #5499C7;
+.form-button {
+    padding: 5px;
+    width: 40px;
     border-radius: 3px;
-    border: none;
-    color: white;
     cursor: pointer;
     text-align: center;
+    border: none;
+    color: white;
+}
+
+#button-submit {
+    background-color: #5499C7;
+}
+
+#button-delete {
+    background-color: #E74C3C;
 }
 
 

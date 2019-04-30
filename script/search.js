@@ -1,5 +1,11 @@
 $(function() {
+
+    // champ titre focus d'entrée de jeu
+
     $("#title").focus();
+
+    //liste des titres eminem lors du clic
+
     $("#button-submit").click(function() {
         console.log("j'ai cliqué!");
         $.ajax({
@@ -14,5 +20,15 @@ $(function() {
         
         });
     });
+
+    //supression des champs du formulaire 
+
+    $("#button-delete").click(function() {
+        $(':input')
+        .not(':button, :submit, :reset, :hidden, .form-button')
+        .val('')
+        .prop('checked', false)
+        .prop('selected', false);
+    })
     
 });
