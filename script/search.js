@@ -22,7 +22,6 @@ $(function() {
     //liste des titres de musique selon l'artiste lors du clic
 
     $("#button-submit").click(function() {
-        console.log("j'ai cliqué!");
         $.ajax({
             url : 'https://api.deezer.com/search?q=' + $("#title").val() + '&output=jsonp',
             dataType : 'jsonp'
@@ -30,6 +29,9 @@ $(function() {
         
             console.log(musiques);
             console.log(musiques.total);
+            let tab = [];
+            musiques.data.map(m => tab.push(m));
+            console.log('mon tableau de musiques : ', tab);
         
             document.querySelector('#results').innerHTML =
                     musiques.data.map(m => '<div class="results-box"><h3>' + m.title + '</h3>' 
@@ -37,8 +39,9 @@ $(function() {
                     + '<span class="artist-name">' + m.artist.name +'</span>'
                     + '<p>' + m.album.title + '</p>'
                     + '<audio src=' + m.preview + ' controls>Veuillez mettre à jour votre navigateur ! </audio>'
-                    + '<button class="favorite-button"><i class="fas fa-heart"></i>Bouton des favoris</button></div>')
+                    + '<button class="favorite-button">Ajouter aux favoris</button></div>')
                     .join('<br>');
+                   
             
             if (musiques.total === 0) {
                 document.querySelector('#results').innerHTML =
@@ -65,8 +68,28 @@ $(function() {
     //Ajout des favoris au localStorage
 
     $("#results").on('click', '.favorite-button', function() {
-        localStorage.setItem('title', m.title);
+        localStorage.setItem('titre_choisi', 'test');
         console.log(myFavorites);
+        console.log(title);
+        $(this).removeClass('favorite-button');
+        $(this).addClass('alternate');
+        $(this).text('Retirer des favoris');
+        console.log($(this).attr('class'));
+        
     });
+
+    //Retrait des favoris du localStorage
+
+    $("#results").on('click', '.alternate', function() {
+        localStorage.removeItem('titre_choisi');
+        console.log(myFavorites);
+        $(this).removeClass('alternate');
+        $(this).addClass('favorite-button');
+        $(this).text('Ajouter aux favoris');
+        console.log($(this).attr('class'));
+        
+    });
+
+
     
 });

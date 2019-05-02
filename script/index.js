@@ -29,6 +29,14 @@ function storageAvailable(type) {
     }
 }
 
+if (localStorage.length != 0) {
+    document.querySelector('#favorites-results').innerHTML = 
+    '<p class="p-results">Une musique de vos favoris au hasard : </p>'
+    + '<div class="results-box"><p>' + localStorage.titre_choisi + '</p></div>';
+} else {
+    console.log("il n'y a pas de favori");
+}
+
 // possibilité d'utiliser la méthode JSONP (hack)
 
 /*fetch('https://api.deezer.com/search?q=eminem')
