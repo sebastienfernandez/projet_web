@@ -3,6 +3,7 @@
 
 $(function() {
     
+    console.log(localStorage);
     
     
     $("#clear-button").on('click',function() {
