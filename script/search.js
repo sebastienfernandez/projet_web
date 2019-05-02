@@ -28,7 +28,6 @@ $(function() {
         }).done(function(musiques) {
         
             console.log(musiques);
-            console.log(musiques.total);
             let tab = [];
             let i = 0;
             musiques.data.map(m => tab.push(m));
@@ -69,8 +68,8 @@ $(function() {
     //Ajout des favoris au localStorage
 
     $("#results").on('click', '.favorite-button', function() {
-        let choice = $(this).parent().children('h3').text();
-        localStorage.setItem('titre_choisi', choice);
+        let choice = $(this).parent();
+        localStorage.setItem('titre', choice);
         console.log(myFavorites);
         $(this).removeClass('favorite-button');
         $(this).addClass('alternate');
@@ -82,7 +81,7 @@ $(function() {
     //Retrait des favoris du localStorage
 
     $("#results").on('click', '.alternate', function() {
-        let choice = $(this).parent().children('h3').text();
+        let choice = $(this).parent();
         localStorage.removeItem(choice);
         console.log(myFavorites);
         $(this).removeClass('alternate');

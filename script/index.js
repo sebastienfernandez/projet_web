@@ -5,7 +5,7 @@ monStockage = localStorage;
 /*   si échec de la prise en charge du localstorage ou de sa disponibilité  */
 
 function storageAvailable(type) {
-    let storage;
+    
     try {
         /* déclaration d'une variable storage et d'une varibale 'test'   */
         storage = window[type];
@@ -29,13 +29,26 @@ function storageAvailable(type) {
     }
 }
 
+// test ajout de plusieurs valeurs au localstorage
+
+localStorage.setItem("fr", 'bonjour');
+localStorage.setItem("en", 'hello');
+localStorage.setItem("all", 'guten tag');
+localStorage.setItem("it", 'bonjiourno');
+localStorage.setItem("jap", 'con-nichon-hann');
+console.log(localStorage[1]);
+
+
+
+
 if (localStorage.length != 0) {
     document.querySelector('#favorites-results').innerHTML = 
     '<p class="p-results">Une musique de vos favoris au hasard : </p>'
-    + '<div class="results-box"><p>' + localStorage.titre_choisi + '</p></div>';
+    + '<div class="results-box"><p>' + localStorage[Math.floor(Math.random()*localStorage.length)] + '</p></div>';
 } else {
     console.log("il n'y a pas de favori");
-}
+};
+
 
 // possibilité d'utiliser la méthode JSONP (hack)
 
