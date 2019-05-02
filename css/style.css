@@ -31,6 +31,10 @@ h1 {
     list-style: none;
 }
 
+.navigation-point {
+    text-align: center;
+}
+
 .link-navigation {
     display: flex;
     align-items: center;
@@ -55,6 +59,7 @@ main {
 }
 
 .main-content {
+    margin: 0 auto;
     margin-top: 4%;
     margin-bottom: 3%;
     padding: 1%;
@@ -77,7 +82,13 @@ main {
     margin: 0 auto;
 }
 
+.p-results {
+    text-align: center;
+    font-size: 1.5em;
+}
+
 /************** INDEX   *******************/
+
 
 
 /************** SEARCH  *******************/
@@ -164,3 +175,45 @@ audio {
     font-size: 1.6em;
     background-color: #424242;
 }
+
+/******************  MEDIA QUERIES  *****************/
+
+@media screen and (max-width: 1400px) {
+    
+    form {
+        width: 70%;
+        margin: 0 auto;
+        flex-direction: column;
+    }
+    
+}
+
+@media screen and (max-width: 1200px) {
+    
+    header {
+        flex-direction: column;
+    }
+    
+    .navigation-content {
+        flex-direction: column;
+        align-items: center;
+        padding-left: 0;
+    }
+    
+}
+
+@media screen and (max-width: 900px) {
+    .main-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 9%;
+        padding-bottom: 3%;
+    }
+    
+    #clear-button {
+        margin-right: 0px;
+    }
+}
+
+

@@ -2,10 +2,6 @@
 
 monStockage = localStorage;
 
-localStorage.setItem('film','avengers 4');
-
-console.log(monStockage);
-
 /*   si échec de la prise en charge du localstorage ou de sa disponibilité  */
 
 function storageAvailable(type) {

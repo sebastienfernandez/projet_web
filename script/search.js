@@ -29,6 +29,7 @@ $(function() {
         }).done(function(musiques) {
         
             console.log(musiques);
+            console.log(musiques.total);
         
             document.querySelector('#results').innerHTML =
                     musiques.data.map(m => '<div class="results-box"><h3>' + m.title + '</h3>' 
@@ -38,6 +39,11 @@ $(function() {
                     + '<audio src=' + m.preview + ' controls>Veuillez mettre à jour votre navigateur ! </audio>'
                     + '<button class="favorite-button"><i class="fas fa-heart"></i>Bouton des favoris</button></div>')
                     .join('<br>');
+            
+            if (musiques.total === 0) {
+                document.querySelector('#results').innerHTML =
+                    '<p class="p-results">Aucun résultat pour cette recherche...</p>'
+            }
         
         });
 
@@ -59,7 +65,7 @@ $(function() {
     //Ajout des favoris au localStorage
 
     $("#results").on('click', '.favorite-button', function() {
-        localStorage.setItem("title","title one");
+        localStorage.setItem('title', m.title);
         console.log(myFavorites);
     });
     
