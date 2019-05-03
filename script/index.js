@@ -1,6 +1,3 @@
-// test du localStrorage
-
-monStockage = localStorage;
 
 /*   si échec de la prise en charge du localstorage ou de sa disponibilité  */
 
@@ -30,15 +27,39 @@ function storageAvailable(type) {
 }
 
 
+let favoriteRandom = JSON.parse(localStorage.favs)[Math.floor(Math.random()*(JSON.parse(localStorage.favs).length))];
 
+console.log(favoriteRandom);
 
 if (localStorage.length !== 0) {
+    $.ajax({
+        url : 'https://api.deezer.com/track/' + favoriteRandom + '&output=jsonp',
+        dataType : 'jsonp'
+    }).done(function(random) {
+        console.log('mon random : ', random);
+        
+        $('#favorites-results').append(
+                 '<div class="results-box"><h3>' + random.title + '</h3>'  
+                + '<img src=' + random.album.cover_medium + ' alt="logo couverture" class="music-cover"/>'
+                + '<span class="artist-name">' + random.artist.name +'</span>'
+                + '<p>' + random.album.title + '</p>'
+                + '<audio src=' + random.preview + ' controls>Veuillez mettre à jour votre navigateur ! </audio><br>'
+                );
+               
+    
+    });
     document.querySelector('#favorites-results').innerHTML = 
-    '<p class="p-results">Une musique de vos favoris au hasard : </p>'
-    + '<div class="results-box"><p>' + localStorage[Math.floor(Math.random()*localStorage.length)] + '</p></div>';
+    '<p class="p-results">Une musique de vos favoris au hasard : </p></div>';
 } else {
     console.log("il n'y a pas de favori");
 };
+
+
+
+
+    
+
+
 
 
 // possibilité d'utiliser la méthode JSONP (hack)

@@ -2,10 +2,6 @@
 
 $(function() {
 
-    //declaration de mon localStorage
-
-    let myFavorites = localStorage;
-
     // champ titre focus d'entrée de jeu
 
     $("#title").focus();
@@ -19,19 +15,48 @@ $(function() {
         }
     });
 
+    function musicDisplay () {
+        console.log('affichage des musiques');
+    };
+
     //liste des titres de musique selon la musique lors du clic
 
     $("#button-submit").click(function() {
+        let sortValue = $('#sort-by').val();
+        switch (sortValue) {
+            case "album":
+                console.log('tri par album');
+                musicDisplay();
+                break;
+            case "artist":
+                console.log('tri par artiste');
+                musicDisplay();
+                break;
+            case "music":
+                console.log('tri par musique');
+                musicDisplay();
+                break;
+            case "viewed":
+                console.log('tri par popularité');
+                musicDisplay();
+                break;
+            case "ranked":
+                console.log('tri par notation');
+                musicDisplay();
+                break;
+            default:
+                console.log('aucun tri sélectionné');
+            
+
+            
+        };
         $.ajax({
             url : 'https://api.deezer.com/search?q=' + $("#title").val() + '&output=jsonp&order=' + $("#sort-by").val(),
             dataType : 'jsonp'
         }).done(function(musiques) {
         
             console.log(musiques);
-            let tab = [];
-            let i = 0;
-            musiques.data.map(m => tab.push(m));
-            console.log('mon tableau de musiques : ', tab);
+
             const favorites = JSON.parse(localStorage.getItem('favs')) || [];
         
             document.querySelector('#results').innerHTML =
@@ -74,7 +99,7 @@ $(function() {
         const favs = JSON.parse(localStorage.getItem('favs')) || [];
         favs.push($(this).data('id'));
         localStorage.setItem('favs', JSON.stringify(favs));
-        console.log(myFavorites);
+        console.log(localStorage);
         console.log($(this).data("id"));
         $(this).removeClass('favorite-button');
         $(this).addClass('alternate');
@@ -89,7 +114,7 @@ $(function() {
         const favs = JSON.parse(localStorage.getItem('favs')) || [];
         const newFavs = favs.filter(f => f !== $(this).data("id"));
         localStorage.setItem('favs', JSON.stringify(newFavs));
-        console.log(myFavorites);
+        console.log(localStorage);
         $(this).removeClass('alternate');
         $(this).addClass('favorite-button');
         $(this).text('Ajouter aux favoris');

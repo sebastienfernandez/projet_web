@@ -4,6 +4,13 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+#results, #favorites-selection {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 4%;
+}
+
 /* HEADER COMMUN A TOUTES LES PAGES  */
 
 header {
@@ -89,7 +96,13 @@ main {
 
 /************** INDEX   *******************/
 
-
+#favorites-results {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 4%;
+}
 
 /************** SEARCH  *******************/
 
