@@ -44,11 +44,11 @@
                     <p>
                         <label for="sort">Trier par</label> : 
                         <select id="sort-by">
-                            <option value="album">Album</option>
-                            <option value="artist">Artiste</option>
-                            <option value="music">Musique</option>
-                            <option value="viewed">Les plus populaires</option>
-                            <option value="ranked">Les mieux notées</option>
+                            <option value="ALBUM_ASC">Album</option>
+                            <option value="ARTIST_ASC">Artiste</option>
+                            <option value="">Musique</option>
+                            <option value="RANKING">Les plus populaires</option>
+                            <option value="RATING_ASC">Les mieux notées</option>
                         </select>
                     </p>
                     <p>
@@ -60,8 +60,8 @@
                         <input type="range" name="duration-max" min="0" max="600" value="400"/>
                     </p>
                     <p>
-                        <label for="adult">Contenu explicite</label>
-                        <input type="radio" name="censorship" value="adult"/>
+                        <label for="explicit">Contenu explicite</label>
+                        <input type="checkbox" name="censorship" id="explicit"/>
                     </p>
                     <p>
                         <input value="Go" id="button-submit" class="form-button" readonly="readonly"/>

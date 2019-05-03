@@ -27,32 +27,58 @@ function storageAvailable(type) {
 }
 
 
+
+
 let favoriteRandom = JSON.parse(localStorage.favs)[Math.floor(Math.random()*(JSON.parse(localStorage.favs).length))];
 
-console.log(favoriteRandom);
+//localStorage.setItem('random', favoriteRandom);
 
-if (localStorage.length !== 0) {
+console.log(JSON.parse(localStorage.favs).length);
+
+
+if (JSON.parse(localStorage.favs).length !== 0) {
     $.ajax({
         url : 'https://api.deezer.com/track/' + favoriteRandom + '&output=jsonp',
         dataType : 'jsonp'
     }).done(function(random) {
-        console.log('mon random : ', random);
         
         $('#favorites-results').append(
                  '<div class="results-box"><h3>' + random.title + '</h3>'  
                 + '<img src=' + random.album.cover_medium + ' alt="logo couverture" class="music-cover"/>'
                 + '<span class="artist-name">' + random.artist.name +'</span>'
                 + '<p>' + random.album.title + '</p>'
-                + '<audio src=' + random.preview + ' controls>Veuillez mettre à jour votre navigateur ! </audio><br>'
+                + '<audio src=' + random.preview + ' controls>Veuillez mettre à jour votre navigateur ! </audio></div><br>'
                 );
+
+                $('#another-music').click(function() {
+                    let favoriteRandom = JSON.parse(localStorage.favs)[Math.floor(Math.random()*(JSON.parse(localStorage.favs).length))];
+                    $.ajax({
+                        url : 'https://api.deezer.com/track/' + favoriteRandom + '&output=jsonp',
+                        dataType : 'jsonp'
+                    }).done(function(random) {
+                        document.querySelector('.results-box').innerHTML = 
+                        '<h3>' + random.title + '</h3>'  
+                        + '<img src=' + random.album.cover_medium + ' alt="logo couverture" class="music-cover"/>'
+                        + '<span class="artist-name">' + random.artist.name +'</span>'
+                        + '<p>' + random.album.title + '</p>'
+                        + '<audio src=' + random.preview + ' controls>Veuillez mettre à jour votre navigateur ! </audio><br>'
+                    })
+
+                    
+                });
                
     
     });
     document.querySelector('#favorites-results').innerHTML = 
-    '<p class="p-results">Une musique de vos favoris au hasard : </p></div>';
+    '<div class="text-for-random"><p class="p-results">Une musique de vos favoris au hasard : </p></div>';
+    if (JSON.parse(localStorage.favs).length > 1) {
+        $('.text-for-random').append('<button id="another-music">Choisir une autre musique</button>');
+    }
 } else {
     console.log("il n'y a pas de favori");
 };
+
+
 
 
 

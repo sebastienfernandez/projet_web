@@ -19,39 +19,24 @@ $(function() {
         console.log('affichage des musiques');
     };
 
+    
+
     //liste des titres de musique selon la musique lors du clic
 
     $("#button-submit").click(function() {
-        let sortValue = $('#sort-by').val();
-        switch (sortValue) {
-            case "album":
-                console.log('tri par album');
-                musicDisplay();
-                break;
-            case "artist":
-                console.log('tri par artiste');
-                musicDisplay();
-                break;
-            case "music":
-                console.log('tri par musique');
-                musicDisplay();
-                break;
-            case "viewed":
-                console.log('tri par popularité');
-                musicDisplay();
-                break;
-            case "ranked":
-                console.log('tri par notation');
-                musicDisplay();
-                break;
-            default:
-                console.log('aucun tri sélectionné');
-            
 
-            
-        };
+        let explicit = new Boolean();
+        
+        if ($('#explicit').is(':checked')) {
+            explicit = true;
+            console.log(explicit);
+        } else {
+            explicit = false;
+            console.log(explicit);
+        }
+
         $.ajax({
-            url : 'https://api.deezer.com/search?q=' + $("#title").val() + '&output=jsonp&order=' + $("#sort-by").val(),
+            url : 'https://api.deezer.com/search?q=' + $("#title").val() + '&output=jsonp&order=' + $("#sort-by").val() + '&explicit_lyrics=' + explicit,
             dataType : 'jsonp'
         }).done(function(musiques) {
         
