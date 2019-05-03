@@ -31,7 +31,10 @@ function storageAvailable(type) {
 
 let favoriteRandom = JSON.parse(localStorage.favs)[Math.floor(Math.random()*(JSON.parse(localStorage.favs).length))];
 
-//localStorage.setItem('random', favoriteRandom);
+
+
+localStorage.setItem('random', favoriteRandom);
+console.log(localStorage.random);
 
 console.log(JSON.parse(localStorage.favs).length);
 
@@ -51,7 +54,10 @@ if (JSON.parse(localStorage.favs).length !== 0) {
                 );
 
                 $('#another-music').click(function() {
-                    let favoriteRandom = JSON.parse(localStorage.favs)[Math.floor(Math.random()*(JSON.parse(localStorage.favs).length))];
+                    while (favoriteRandom === JSON.parse(localStorage.random)) {
+                        favoriteRandom = JSON.parse(localStorage.favs)[Math.floor(Math.random()*(JSON.parse(localStorage.favs).length))];
+                    }
+                    localStorage.setItem('random', favoriteRandom);
                     $.ajax({
                         url : 'https://api.deezer.com/track/' + favoriteRandom + '&output=jsonp',
                         dataType : 'jsonp'
