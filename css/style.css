@@ -1,3 +1,6 @@
+/* COMMUN A TOUTES LES PAGES   */
+
+
 body {
     margin: 0 auto;
     width: 100%;
@@ -9,6 +12,21 @@ body {
     justify-content: space-around;
     flex-wrap: wrap;
     margin-top: 4%;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.title-album {
+    font-weight: bold;
+}
+
+.line-album {
+    text-align: center;
 }
 
 /* HEADER COMMUN A TOUTES LES PAGES  */
@@ -94,6 +112,23 @@ main {
     font-size: 1.5em;
 }
 
+/*   FOOTER   */
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 3%;
+    height: 130px;
+    background-color: #EAEDED;
+    font-size: 1.2em;
+}
+
+footer img {
+    width: 120px;
+    height: 120px;
+}
+
 /************** INDEX   *******************/
 
 #favorites-results {
@@ -129,6 +164,7 @@ form {
     align-items: center;
     border: solid 1px lightgray;
     border-radius: 5px;
+    min-width: 360px;
 }
 
 .form-button {
@@ -160,7 +196,12 @@ form {
     display: flex;
     flex-direction: column;
     margin-bottom: 4%;
+    padding: 2%;
     background-color: lightgrey;
+    border-radius: 5px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
 audio {
@@ -168,6 +209,8 @@ audio {
 }
 
 .artist-name {
+    margin-top: 2%;
+    text-align: center;
     font-family: 'Dancing Script', cursive;
     font-size: 1.5em;
     color: #5499C7;
@@ -176,7 +219,6 @@ audio {
 .favorite-button {
     margin: 0 auto;
     margin-top: 3%;
-    margin-bottom: 3%;
     padding: 3%;
     width: 60%;
     border: 2px solid red;
@@ -189,6 +231,12 @@ audio {
     background-position: center left;
 }
 
+.favorite-button:hover {
+    color: white;
+    background-color: red;
+    opacity: 0.5;
+}
+
 .alternate {
     margin: 0 auto;
     margin-top: 3%;
@@ -198,11 +246,17 @@ audio {
     border: 2px solid white;
     border-radius: 5px;
     color: white;
-    background-color: red;
+    background-color: #E74C3C;
     cursor: pointer;
     background-image: url('../assets/broken.png');
     background-repeat: no-repeat;
     background-position: center left;
+}
+
+.alternate:hover {
+    color: red;
+    background-color: #839192;
+    opacity: 0.5;
 }
 
 
@@ -252,6 +306,39 @@ audio {
         align-items: center;
         padding-left: 0;
     }
+
+    #results {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #results .results-box {
+        width: 60%;
+        min-width: 360px;
+    }
+
+
+    audio {
+        margin: 0 auto;
+        width: 320px;
+    }
+
+    #favorites-results {
+        flex-direction: column;
+    }
+
+    .text-for-random {
+        margin-bottom: 5%;
+    }
+
+    footer {
+        height: 100px;
+    }
+
+    footer img {
+        width: 90px;
+        height: 90px;
+    }
     
 }
 
@@ -267,6 +354,13 @@ audio {
     #clear-button {
         margin-right: 0px;
     }
+
+    footer {
+        flex-direction: column-reverse;
+        height: 170px;
+    }
+
+
 }
 
 
