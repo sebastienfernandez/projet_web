@@ -29,19 +29,10 @@ function storageAvailable(type) {
     }
 }
 
-// test ajout de plusieurs valeurs au localstorage
-
-localStorage.setItem("fr", 'bonjour');
-localStorage.setItem("en", 'hello');
-localStorage.setItem("all", 'guten tag');
-localStorage.setItem("it", 'bonjiourno');
-localStorage.setItem("jap", 'con-nichon-hann');
-console.log(localStorage[1]);
 
 
 
-
-if (localStorage.length != 0) {
+if (localStorage.length !== 0) {
     document.querySelector('#favorites-results').innerHTML = 
     '<p class="p-results">Une musique de vos favoris au hasard : </p>'
     + '<div class="results-box"><p>' + localStorage[Math.floor(Math.random()*localStorage.length)] + '</p></div>';

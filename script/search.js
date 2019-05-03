@@ -19,11 +19,11 @@ $(function() {
         }
     });
 
-    //liste des titres de musique selon l'artiste lors du clic
+    //liste des titres de musique selon la musique lors du clic
 
     $("#button-submit").click(function() {
         $.ajax({
-            url : 'https://api.deezer.com/search?q=' + $("#title").val() + '&output=jsonp',
+            url : 'https://api.deezer.com/search?q=' + $("#title").val() + '&output=jsonp&order=' + $("#sort-by").val(),
             dataType : 'jsonp'
         }).done(function(musiques) {
         
@@ -32,14 +32,15 @@ $(function() {
             let i = 0;
             musiques.data.map(m => tab.push(m));
             console.log('mon tableau de musiques : ', tab);
+            const favorites = JSON.parse(localStorage.getItem('favs')) || [];
         
             document.querySelector('#results').innerHTML =
-                    musiques.data.map(m => '<div class="results-box"><h3>' + m.title + '</h3>' 
+                    musiques.data.map(m => '<div class="results-box"><h3>' + m.title + '</h3>'  
                     + '<img src=' + m.album.cover_medium + ' alt="logo couverture" class="music-cover"/>'
                     + '<span class="artist-name">' + m.artist.name +'</span>'
                     + '<p>' + m.album.title + '</p>'
                     + '<audio src=' + m.preview + ' controls>Veuillez mettre à jour votre navigateur ! </audio>'
-                    + '<button class="favorite-button">Ajouter aux favoris</button></div>')
+                    + favoriteButton(favorites.find(f => m.id === f), m) + '</div>')
                     .join('<br>');
                    
             
@@ -52,7 +53,9 @@ $(function() {
 
     });
 
-    
+    function favoriteButton (isFavorite, track) {
+        return isFavorite ? '<button data-id="'+track.id+'" class="alternate">Retirer des favoris</button>' : '<button data-id="'+track.id+'" class="favorite-button">Ajouter aux favoris</button>'
+    }
 
     //supression des champs du formulaire 
 
@@ -68,9 +71,11 @@ $(function() {
     //Ajout des favoris au localStorage
 
     $("#results").on('click', '.favorite-button', function() {
-        let choice = $(this).parent();
-        localStorage.setItem('titre', choice);
+        const favs = JSON.parse(localStorage.getItem('favs')) || [];
+        favs.push($(this).data('id'));
+        localStorage.setItem('favs', JSON.stringify(favs));
         console.log(myFavorites);
+        console.log($(this).data("id"));
         $(this).removeClass('favorite-button');
         $(this).addClass('alternate');
         $(this).text('Retirer des favoris');
@@ -81,8 +86,9 @@ $(function() {
     //Retrait des favoris du localStorage
 
     $("#results").on('click', '.alternate', function() {
-        let choice = $(this).parent();
-        localStorage.removeItem(choice);
+        const favs = JSON.parse(localStorage.getItem('favs')) || [];
+        const newFavs = favs.filter(f => f !== $(this).data("id"));
+        localStorage.setItem('favs', JSON.stringify(newFavs));
         console.log(myFavorites);
         $(this).removeClass('alternate');
         $(this).addClass('favorite-button');
